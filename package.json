@@ -1,0 +1,24 @@
+{
+  "name": "monash-seekerspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "CnRDatabase.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azorax/Monash-SeekerSpace.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Azorax/Monash-SeekerSpace/issues"
+  },
+  "homepage": "https://github.com/Azorax/Monash-SeekerSpace#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.2"
+  }
+}
