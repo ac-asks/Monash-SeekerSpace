@@ -72,7 +72,7 @@
             <p class="lead">Think of cops and robbers. Now apply this to Monash. You are assigned to be either a cop or a robber.</p>
           </div>
           <div class="col-lg-4 mr-auto">
-            <p class="lead">Now you need to catch the other team.</p>
+            <p class="lead">Now you need to outwit the other team.</p>
           </div>
         </div>
         <div class="text-center mt-4">
@@ -143,7 +143,7 @@
         <i class="fa fa-chevron-up"></i>
       </a>
     </div>
-    
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -158,7 +158,36 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
+    
+    <!-- Testing GET from ServerScript.js-->
+    <script>
+      // var request = require("request");
+      // request("127.0.0.1:8080/", function (error, response, body) {
+      //   if (!error) {
+      //     console.log(response);
+      //     console.log(body);
+      //   } else {
+      //     console.log(error);
+      //   }
+      // });
 
+      var req = new XMLHttpRequest();
+      req.open("GET","127.0.0.1:8080/");
+      req.send();
+      req.onreadystatechange = function () {
+        if (req.readyState == 4 && xhr.status == 200) {
+          console.log("Get request successful!");
+          console.log(req.responseText);
+        }
+        else if (req.readyState == 4) {
+          console.log("Get request finished but no good");
+          console.log(req.status);
+          console.log(req.responseText);
+        }
+      }
+      console.log("script executed");
+      //console.log(req.responseText);
+    </script>
   </body>
 
 </html>
