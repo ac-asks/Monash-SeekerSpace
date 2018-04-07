@@ -17,37 +17,8 @@
 
     <p id="lat+lon"></p>
 
-    // attempts to store lat and long into a format that can be used
-    <script>
-        var y = document.getElementById("lat+lon");
-        // Function retrives lat + lon and calls printLat
-        function positionFunc() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(everything);
-            } else {
-                y.innerHTML = "you suck";
-            }
-        }
+    <script src='Latitude_n_Longitude.js'></script>
 
-        function everything(position) {
-            printLat(latPosition(position), lonPosition(position));
-        }
-
-
-        // Returns current lat
-        function latPosition(position) {
-            var lat = position.coords.latitude;
-            return lat;
-        }
-        // Returns current lon
-        function lonPosition(position) {
-            var lon = position.coords.longitude;
-            return lon;
-        }
-        // Prints lat + lon
-        function printLat(lat, lon) {
-            y.innerHTML = "latitude ==" + lat + "<br> longitude ==" + lon;
-        }
     </script>
 </body>
 
