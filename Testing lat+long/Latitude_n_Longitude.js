@@ -9,12 +9,12 @@ function positionFunc() {
     navigator.geolocation.getCurrentPosition(success, failure);
 }
 function failure() {
-    $('#lat').html("<p>Unable to get location! R u connected to the net?</p>");
+    $('#lat').html("<p>Unable to get location! R u connected to the net? Orusing a bad browser?</p>");
 }
 // changes global variable lat and lon
 function success(position) {
     lat = position.coords.latitude;
     lon = position.coords.longitude;
-    $('#lat').html(lat);
-    $('#lon').html(lon);
+    $('#lat').html(lat + "is the Latitude");
+    $('#lon').html(lon + "is the Longitude");
 }
