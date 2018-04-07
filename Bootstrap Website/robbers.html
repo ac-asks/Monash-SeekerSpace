@@ -55,12 +55,52 @@
     <!-- Header -->
     <header class="masthead bg-primary text-white text-center">
       <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="Crown.png" alt="">
-        <h1 class="text-uppercase mb-0">You win!</h1>
+        <img class="img-fluid mb-5 d-block mx-auto" src="robber.png" alt="">
+        <h1 class="text-uppercase mb-0">You are a robber</h1>
         <hr class="star-light">
-        <h2 class="font-weight-light mb-0"> You caught them!</h2>
+        <h2 class="font-weight-light mb-0"> Catch the cops</h2>
       </div>
     </header>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Game</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+    <!-- This is the game map below -->
+        <html>
+        <head>
+          <style>
+            #map {
+              height: 400px;
+              width: 100%;
+                 }
+          </style>
+        </head>
+        <body>
+            <h3>Find your opponent!</h3>
+              <div id="map"></div>
+              <script>
+                  function initMap() {
+                    var uluru = {lat: -25.363, lng: 131.044};
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 4,
+                      center: uluru
+                    });
+                    var marker = new google.maps.Marker({
+                      position: uluru,
+                      map: map
+                    });
+                  }
+              </script>
+              <!-- This loads the API from the specified URL -->
+              <script async defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaFtFSZ4CdF-nrKf1RL5iIsVXtWcDtyxk&callback=initMap">
+              </script>
+         </body>
+    </section>
 
     <!-- Footer -->
     <footer class="footer text-center">
@@ -102,8 +142,9 @@
             </ul>
           </div>
           <div class="col-md-4">
-            <h4 class="text-uppercase mb-4">About Our Team</h4>
-            <p class="lead mb-0">Patrick, Tomo, Peter and April #IDLEMasterRace
+            <h4 class="text-uppercase mb-4">About Freelancer</h4>
+            <p class="lead mb-0">Freelance is a free to use, open source Bootstrap theme created by
+              <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
           </div>
         </div>
       </div>
