@@ -56,31 +56,42 @@
     <header class="masthead bg-primary text-white text-center">
       <div class="container">
         <img class="img-fluid mb-5 d-block mx-auto" src="monash-university-logo.png" alt="">
-        <h1 class="text-uppercase mb-0">Are you ready?</h1>
+        <h1 class="text-uppercase mb-0">Number of cops: <input type = "text" size = "2" id = "textbox"></h1>
         <hr class="star-light">
-        <h2 class="font-weight-light mb-0">Start below</h2>
+        <h2 class="font-weight-light mb-0"></h2>
+    <!-- Input form (edit the form action area to the database) -->
+        <br>
+             <button type = "submit" class = "btn-warning text-uppercase" value="Submit"> Continue to lobby </button>
+            </br></br>
+        </form>
+        </br>
       </div>
     </header>
 
+    <!-- About Section: Explains the game-->
+    <section class="bg-secondary text-white mb-0" id="about">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">About</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+          <div class="col-lg-4 ml-auto">
+            <p class="lead">Think of cops and robbers. Now apply this to Monash. You are assigned to be either a cop or a robber.</p>
+          </div>
+          <div class="col-lg-4 mr-auto">
+            <p class="lead">Now you need to catch the other team.</p>
+          </div>
+        </div>
+    </section>
 
-    <!-- GAME SECTION: Play the game here, Google API used here -->
+    <!--
     <section id="contact">
       <div class="container">
-        <h2 class="text-center text-uppercase text-secondary mb-0">Find your opponent!</h2>
+        <h2 class="text-center text-uppercase text-secondary mb-0">Game</h2>
         <hr class="star-dark mb-5">
         <div class="row">
           <div class="col-lg-8 mx-auto">
 
-    <!-- This is the game map below -->
-        <h4 class = "text-center text-secondary mb-0"> Proximity meter: </h4>
-        <br>
-        <div class="progress">
-            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow = "100"
-                  aria-valuemin="0" aria-valuemax="50" style="width:50%">
-                <span class="sr-only">70% Complete</span>
-            </div>
-        </div>
-       </br>
+    This is the game map below
         <html>
         <head>
           <style>
@@ -91,7 +102,7 @@
           </style>
         </head>
         <body>
-              <br>
+            <h3>Find your opponent!</h3>
               <div id="map"></div>
               <script>
                   function initMap() {
@@ -108,17 +119,13 @@
               </script>
 
 
-              <!-- This loads the API from the specified URL -->
+              This loads the API from the specified URL
               <script async defer
               src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaFtFSZ4CdF-nrKf1RL5iIsVXtWcDtyxk&callback=initMap">
               </script>
-                <br>
-
-                  <!-- Lists remaining robbers -->
-                  <h4 align = "left" class= "text-secondary mb-0">Robbers remaining:</h4>
-                </br>
          </body>
     </section>
+  -->
 
     <!-- Footer -->
     <footer class="footer text-center">
