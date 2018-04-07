@@ -49,10 +49,18 @@
         var y = document.getElementById("lat");
         // Function retrives lat + lon and calls printLat
         function positionFunc() {
-            var lat = navigator.geolocation.getCurrentPosition(latPosition);
-            var lon = navigator.geolocation.getCurrentPosition(lonPosition);
-            printLat(lat, lon);
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(everything);
+            } else {
+                y.innerHTML = "you suck";
+            }
         }
+
+        function everything(position) {
+            printLat(latPosition(position), lonPosition(position));
+        }
+
+
         // Returns current lat
         function latPosition(position) {
             var lat = position.coords.latitude;
