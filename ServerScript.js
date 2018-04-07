@@ -1,19 +1,21 @@
 // includes the HTTP module
 var http = require('http');
 var dt = require('./ServerModule.js');
-var cors = require('cors');
+//var cors = require('cors');
 var express = require('express');
-//var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 //var socket = require('socket.io');
+
+var people = [];
 
 //setup an express app
 var app = express();
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded(
-//   {extended: true}
-// ));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded(
+  {extended: true}
+));
 
-app.use(cors);
+//app.use(cors);
 var server = app.listen(8081, function(){
   console.log('listening to requests on port 8080');
 });
@@ -34,7 +36,7 @@ app.get('/hello/:my_param', (req, res) => {
 app.post('/test_post', (req, res) => {
   var data = req.body;
   console.log(data);
-  res.status(200);
+  res.status(200).json({'post': 'this worked'});
 
 });
 
