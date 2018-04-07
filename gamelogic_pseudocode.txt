@@ -1,0 +1,77 @@
+//Assuming all players are in
+-----Server Data-----
+Players (string name, bool isCopper)
+-bool GameRunning
+-int NumOfCoppers (set by creator)
+-int LongestDistance (set by creator)
+-int Timer (how much time left in seconds)
+Robbers (string name, float longitude, float latitude)
+---------------------
+
+-----Client Data-----
+-string name
+-float longitude
+-float latitude
+-bool isCaught (whether or not they are caught)
+-float howWarm (0-1 cold-hot)
+---------------------
+
+-----Client-----
+Game loop:
+	Draw map
+	If !isCopper:
+		Server::sendLocation(name,longitude,latitude)
+		Draw Caught button
+		If Caught button is pressed:
+			inGame=false
+			Server::gotCaught(Name)
+			Go to idle page
+		
+	If isCopper:
+		??? = Server::getRobberNames()
+		Draw list of robbers (get robber data from server)
+		//Get player label
+		??? = Server::getRobberLocations()
+		Calculate distance between client and robbers (get robbers data)
+		howWarm = Min(robbers distance)/MaximumDistance
+		
+Idle Page Loop:
+	If !GameRunning:
+		Go to end game page
+
+End game:
+	If (isCopper and Timer>0):
+		Draw "Game over. Coppers win"
+	Else:
+		Draw "Game over. Robbers win"
+		
+-----Server-----
+Loop:
+	If Timer==0 or #Robbers==0:
+		GameRunning=false
+	Else:
+		Timer-=1
+	Handle incoming requests
+	Sleep a second
+
+Void StartGame()
+	GameRunning=true
+	Randomly assign isCopper=true to different players
+Bool GetIsCopper(string name)
+	Look up name in Players
+	Return isCopper
+Void gotCaught(string name)
+	Look up name in Robbers
+	Remove player from Robbers
+Void sendLocation(string name)
+	Look up name in Robbers
+	Overwrite longitude/latitude
+
+String[] getRobberNames()
+	Return array of Robbers names
+
+Float[][] getRobberLocations()
+	Return array of Robber locations
+
+----------------
+	 
