@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lat/Lng Object Literal</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC23tLDaC-xc7rCmcKlJSvPXXqTcMAsQ9Y"></script>
+    <script>
+        // In this example, we center the map, and add a marker, using a LatLng object
+        // literal instead of a google.maps.LatLng object. LatLng object literals are
+        // a convenient way to add a LatLng coordinate and, in most cases, can be used
+        // in place of a google.maps.LatLng object.
+        // attempts to store lat and long into a format that can be used
+        /* Stores lat and lon as global variables so that we can manipulate them
+        */
+        var lat = 0;
+        var lon = 0;
+
+        positionFunc();
+        //setInterval(function () { }, 3000);
+
+        // Function retrives lat + lon and calls printLat. getCurrentPosition has 2 calls. 1st is on success.2nd is on failure.
+        function positionFunc() {
+            navigator.geolocation.watchPosition(success, failure);
+        }
+        function failure() {
+            $('#lat').html("<p>Unable to get location! R u connected to the net? Orusing a bad browser?</p>");
+        }
+        // changes global variable lat and lon
+        function success(position) {
+            lat = position.coords.latitude;
+            lon = position.coords.longitude;
+            //Google - API - ready lat long string//
+        }
+        var coords = new google.maps.LatLng(lat, lon);
+        var map;
+        function initialize() {
+            var mapOptions = {
+                zoom: 16,
+                center: coords
+            };
+            map = new google.maps.Map(document.getElementById('map'),
+                mapOptions);
+
+            var marker = new google.maps.Marker({
+                // The below line is equivalent to writing:
+                // position: new google.maps.LatLng(-34.397, 150.644)
+                position: coords,
+                map: map
+            });
+
+            // You can use a LatLng literal in place of a google.maps.LatLng object when
+            // creating the Marker object. Once the Marker object is instantiated, its
+            // position will be available as a google.maps.LatLng object. In this case,
+            // we retrieve the marker's position using the
+            // google.maps.LatLng.getPosition() method.
+            var infowindow = new google.maps.InfoWindow({
+                content: '<p>Marker Location:' + marker.getPosition() + '</p>'
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize); 
+    </script>
+</head>
+
+<body>
+    <div id="map"></div>
+</body>
+
+</html>
