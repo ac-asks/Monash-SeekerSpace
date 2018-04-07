@@ -11,42 +11,15 @@
 
 <body>
 
-    <p>Click the button to get your coordinates.</p>
-
-    <button onclick="getLocation()">Try It</button>
-
-    <p id="demo"></p>
-    // This checks if geolocation is supported by browser, then returns current latitude and longitude
-    <script>
-        var x = document.getElementById("demo");
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
-            }
-        }
-
-        function showPosition(position) {
-            x.innerHTML = "Latitude: " + position.coords.latitude +
-                "<br>Longitudullol: " + position.coords.longitude;
-        }
-
-    </script>
-
-
-
-
-    <p>Click the button to get your lat.</p>
+    <p>Click the button to get your lat + lon.</p>
 
     <button onclick="positionFunc()">FindLat</button>
 
-    <p id="lat"></p>
+    <p id="lat+lon"></p>
 
     // attempts to store lat and long into a format that can be used
     <script>
-        var y = document.getElementById("lat");
+        var y = document.getElementById("lat+lon");
         // Function retrives lat + lon and calls printLat
         function positionFunc() {
             if (navigator.geolocation) {
