@@ -45,7 +45,7 @@
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Play Now!</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" a href="#contact">Play Now!</a>
             </li>
           </ul>
         </div>
@@ -55,12 +55,68 @@
     <!-- Header -->
     <header class="masthead bg-primary text-white text-center">
       <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="Crown.png" alt="">
-        <h1 class="text-uppercase mb-0">You win!</h1>
+        <img class="img-fluid mb-5 d-block mx-auto" src="monash-university-logo.png" alt="">
+        <h1 class="text-uppercase mb-0">Are you ready?</h1>
         <hr class="star-light">
-        <h2 class="font-weight-light mb-0"> You caught them!</h2>
+        <h2 class="font-weight-light mb-0">Start below</h2>
       </div>
     </header>
+
+    <!-- GAME SECTION: Play the game here, Google API used here -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Game</h2>
+        <hr class="star-dark mb-5">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+
+    <!-- This is the game map below -->
+
+        <html>
+        <head>
+          <style>
+            #map {
+              height: 400px;
+              width: 100%;
+                 }
+          </style>
+        </head>
+        <body>
+            <h3><center>Find your opponent!</center></h3>
+              <br>
+              <div id="map"></div>
+              <script>
+                  function initMap() {
+                    var uluru = {lat: -25.363, lng: 131.044};
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 4,
+                      center: uluru
+                    });
+                    var marker = new google.maps.Marker({
+                      position: uluru,
+                      map: map
+                    });
+                  }
+              </script>
+
+
+              <!-- This loads the API from the specified URL -->
+              <script async defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaFtFSZ4CdF-nrKf1RL5iIsVXtWcDtyxk&callback=initMap">
+              </script>
+                <br>
+                  <!-- Lists remaining robbers -->
+                  <h3 align = "left" class= "text-secondary mb-0">Robbers remaining:</h3>
+                </br>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow = "100"
+                          aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                        <span class="sr-only">70% Complete</span>
+                    </div>
+</div>
+            </br>
+         </body>
+    </section>
 
     <!-- Footer -->
     <footer class="footer text-center">
@@ -68,8 +124,8 @@
         <div class="row">
           <div class="col-md-4 mb-5 mb-lg-0">
             <h4 class="text-uppercase mb-4">Location</h4>
-            <p class="lead mb-0">2215 John Daniel Drive
-              <br>Clark, MO 65243</p>
+            <p class="lead mb-0">Learning And Teaching Building
+              <br>Monash University</p>
           </div>
           <div class="col-md-4 mb-5 mb-lg-0">
             <h4 class="text-uppercase mb-4">Around the Web</h4>
