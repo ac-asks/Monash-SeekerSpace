@@ -1,26 +1,20 @@
 // attempts to store lat and long into a format that can be used
-var y = document.getElementById("lat+lon");
 /* Stores lat and lon as global variables so that we can manipulate them
 */
 var lat = 0;
 var lon = 0;
 
-// Function retrives lat + lon and calls printLat
+// Function retrives lat + lon and calls printLat. getCurrentPosition has 2 calls. 1st is on success.2nd is on failure.
 function positionFunc() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success);
-    } else {
-        y.innerHTML = "you suck";
-    }
+    navigator.geolocation.getCurrentPosition(success, failure);
+}
+function failure() {
+    $('#lat').html("<p>Unable to get location! R u connected to the net? Orusing a bad browser?</p>");
 }
 // changes global variable lat and lon
 function success(position) {
     lat = position.coords.latitude;
     lon = position.coords.longitude;
-    printLat(lat, lon);
-}
-
-// Prints lat + lon
-function printLat(lat, lon) {
-    y.innerHTML = "latitude ==" + lat + "<br> longitude ==" + lon;
+    $('#lat').html(lat + "is the Latitude");
+    $('#lon').html(lon + "is the Longitude");
 }

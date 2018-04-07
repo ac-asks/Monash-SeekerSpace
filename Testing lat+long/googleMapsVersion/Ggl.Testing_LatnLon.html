@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!swap all 'getCurrentPosition' with 'watchPosition'>
+
+
+<html>
+<title>
+    TESTingL n Lon
+</title>
+
+<body>
+    <script src="jquery.js"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyC23tLDaC-xc7rCmcKlJSvPXXqTcMAsQ9Y"></script>
+
+    <p>Click the button to get your lat + lon.</p>
+
+    <button onclick=" positionFunc() ">Find Ur Position using a Map</button>
+
+
+    <!--This returns latitude(lat) and longitude(lon).And prints it-->
+    <script src='Latitude_n_Longitude.js'>
+
+    </script>
+    <style>
+        #map {
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+    <div id="map"></div>
+    <div id="lat "></div>
+    <div id="lon "></div>
+</body>
+
+</html>
