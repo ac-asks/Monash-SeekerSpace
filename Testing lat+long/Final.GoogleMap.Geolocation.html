@@ -18,7 +18,7 @@
 
         html,
         body {
-            height: 80%;
+            height: 90%;
             margin: 0;
             padding: 0;
         }
@@ -27,6 +27,8 @@
 
 <body>
     <div id="map"></div>
+    <div id="lat"></div>
+    <div id="lng"></div>
     <script>
         // Note: This example requires that you consent to location sharing when
         // prompted by your browser. If you see the error "The Geolocation service
@@ -53,7 +55,7 @@
                     });
                     infoWindow.open(map);
                     map.setCenter(pos);
-                    var marker = new google.maps.Marker({
+                    var marker1 = new google.maps.Marker({
                         position: pos,
                         map: map
                     });
