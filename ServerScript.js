@@ -6,7 +6,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 //var socket = require('socket.io');
 
-var people = [];
+var players = [];
 
 //setup an express app
 var app = express();
@@ -17,19 +17,21 @@ app.use(bodyParser.urlencoded(
 
 //app.use(cors);
 var server = app.listen(8081, function(){
-  console.log('listening to requests on port 8080');
+  console.log('listening to requests on port 8081');
 });
 
 app.get('/', (req, res) => {
   res.json({'hi': 'lo'});
 });
 
+//A get function that adds players into the list of current players
 var counter = 0;
-app.get('/hello/:my_param', (req, res) => {
-  var my_param = req.params.my_param;
-  console.log('endpoint /hello called');
-  console.log(my_param);
-  res.json({'name': 'bob', 'counter': counter, 'lat': 100, 'lng': 50, 'other_people': [1, 1, 2, 3]});
+app.get('/join/:name_param', (req, res) => {
+  var my_param = req.params.name_param;
+  players.push({'name': my_param, 'lat': 0, 'lng':0 , 'role':'neutral'})
+  console.log('player added');
+  //res.json({'name': 'bob', 'counter': counter, 'lat': 100, 'lng': 50, 'other_people': [1, 1, 2, 3]});
+  res.status(200);
   counter++;
 });
 
