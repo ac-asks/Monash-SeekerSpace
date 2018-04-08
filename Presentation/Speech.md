@@ -22,7 +22,7 @@ Robbers would have trackers, and coppers would have a sensor which tells them wh
     2. The coppers win by approaching within 1m of a robber and 'catching' them
     3. Robbers win by eluding the coppers for the given time limit
 
-The technologies we've been using are google api, bootstrap, javascript modules express and node.js, git.
+The technologies we've been using are HTML5 google maps api, bootstrap, javascript modules express and node.js, git.
 
 Languages: HTML, CSS, Javascript
 
