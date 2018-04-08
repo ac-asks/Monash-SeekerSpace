@@ -6,11 +6,8 @@ var express = require('express');
 //var bodyParser = require('body-parser');
 //var socket = require('socket.io');
 
-var people = [];
+var players = [];
 
-//setup an express app
-var app = express();
-//app.use(cors);
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -31,12 +28,14 @@ app.get('/', (req, res) => {
   res.send("Hi there");//res.json({'hi': '<text>lo</text>'});
 });
 
+//A get function that adds players into the list of current players
 var counter = 0;
-app.get('/hello/:my_param', (req, res) => {
-  var my_param = req.params.my_param;
-  console.log('endpoint /hello called');
-  console.log(my_param);
-  res.json({'name': 'bob', 'counter': counter, 'lat': 100, 'lng': 50, 'other_people': [1, 1, 2, 3]});
+app.get('/join/:name_param', (req, res) => {
+  var my_param = req.params.name_param;
+  players.push({'name': my_param, 'lat': 0, 'lng':0 , 'role':'neutral'})
+  console.log('player added');
+  //res.json({'name': 'bob', 'counter': counter, 'lat': 100, 'lng': 50, 'other_people': [1, 1, 2, 3]});
+  res.status(200);
   counter++;
 });
 
