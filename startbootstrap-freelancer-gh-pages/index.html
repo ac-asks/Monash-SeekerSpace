@@ -170,24 +170,32 @@
       //     console.log(error);
       //   }
       // });
+      
+      // var fet = fetch('http://localhost:8080')
+      // .then(function(response) {
+      //   console.log('success');
+      //   return response.json();
+      //   });
+      //   console.log(fet)
 
-      var req = new XMLHttpRequest();
+      var req = new XMLHttpRequest()
       req.open("GET","127.0.0.1:8080/");
       req.send();
       req.onreadystatechange = function () {
-        if (req.readyState == 4 && xhr.status == 200) {
+        
+        if (req.readyState == 4 && req.status == 200) {
           console.log("Get request successful!");
           console.log(req.responseText);
         }
-        else if (req.readyState == 4) {
-          console.log("Get request finished but no good");
+        else {
+          console.log(req.readyState);
           console.log(req.status);
-          console.log(req.responseText);
+          console.log("Get request finished but no good");
+          console.log(req);
         }
       }
       console.log("script executed");
-      //console.log(req.responseText);
+      // console.log(req.responseText);
     </script>
   </body>
-
 </html>
