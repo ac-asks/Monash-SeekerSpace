@@ -19,11 +19,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
-<<<<<<< HEAD
-    "express": "^4.16.3"
-=======
-    "express": "^4.15.2",
+    "express": "^4.16.3",
     "socket.io": "^2.1.0"
->>>>>>> Tomo
   }
 }
