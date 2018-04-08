@@ -1,17 +1,15 @@
 **Intro**
-Does everyone remember playing a classic game of tiggey or Cops n Robbers?
+Just some clarification - although our team name is IDLE Master race, our project name is Monash Seeker Space
 
-Basically it involes a chaser and a runner.
+Does everyone remember playing a classic - age-old game of tiggey or Cops n Robbers?
 
-How you would have played this game would be that there would be several chasers or cops, and several runners, or robbers.
+For those of you who have been unfortunate to have missed out, it basically involves a chaser and a runner.
 
-The cops' task would to catch robbers usually by tapping.
+How you would have played this game would be that there would be 1 or several chasers or cops, and several runners, or robbers.
 
-The robbers' task would be to run and stay uncaught for as long as possible, usually by dodging or hiding.
+We're want to bring it back! Bring back the fun of chasing and running that we had as a kid.
 
-However, the problem with doing that today is that, it is way too efficient for robbers to win by hiding in a random bush.
-
-We've decided to add a twist to this game by including the use of phones, GPS, and internet.
+We've decided to add a modern twist to this game by including the use of phones, GPS, and internet.
 
 Robbers would have trackers, and coppers would have a sensor which tells them when they are getting hotter or colder towards a particular robber. Essentially coppers would have an assistant which allows them to find robbers when the play area is increased.
 
@@ -22,11 +20,18 @@ Robbers would have trackers, and coppers would have a sensor which tells them wh
     2. The coppers win by approaching within 1m of a robber and 'catching' them
     3. Robbers win by eluding the coppers for the given time limit
 
-The technologies we've been using are google api, bootstrap, javascript modules express and node.js, git.
+The technologies we've been using are HTML5 google maps api, bootstrap, javascript modules express and node.js, git.
 
 Languages: HTML, CSS, Javascript
 
 
 
 Other features that could be added would be tied in with additional rules such as:
-- 
+- The app will only designate coppers and robbers once everyone is sufficiently far apart.
+    - This allows for the players to now know who a robber is and who a copper is
+- Robbers get points the longer they stay in 1 place
+- Map area limit (restrictions) because Clayton Campus is large
+- They can spend said points on effects or power ups such as
+    - Disable scanner for a minute, 
+    - Hack into the tracker to make their location point towards someone else
+    - If 2 robbers find each other
