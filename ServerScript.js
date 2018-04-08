@@ -5,6 +5,7 @@ var dt = require('./ServerModule.js');
 var express = require('express');
 //var bodyParser = require('body-parser');
 //var socket = require('socket.io');
+var app = express();
 
 var players = [];
 
