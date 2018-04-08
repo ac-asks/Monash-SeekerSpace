@@ -3,25 +3,29 @@ var http = require('http');
 var dt = require('./ServerModule.js');
 //var cors = require('cors');
 var express = require('express');
-var bodyParser = require('body-parser');
+//var bodyParser = require('body-parser');
 //var socket = require('socket.io');
 
 var players = [];
 
-//setup an express app
-var app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded(
-  {extended: true}
-));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
-//app.use(cors);
-var server = app.listen(8081, function(){
-  console.log('listening to requests on port 8081');
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded(
+//   {extended: true}
+// ));
+
+var server = app.listen(8080, function(){
+  console.log('listening to requests on port 8080');
 });
 
 app.get('/', (req, res) => {
-  res.json({'hi': 'lo'});
+  console.log('endpoint / called');
+  res.send("Hi there");//res.json({'hi': '<text>lo</text>'});
 });
 
 //A get function that adds players into the list of current players
@@ -35,12 +39,11 @@ app.get('/join/:name_param', (req, res) => {
   counter++;
 });
 
-app.post('/test_post', (req, res) => {
-  var data = req.body;
-  console.log(data);
-  res.status(200).json({'post': 'this worked'});
-
-});
+// app.post('/test_post', (req, res) => {
+//   var data = req.body;
+//   console.log(data);
+//   res.status(200).json({'post': 'this worked'});
+// });
 
 //:8080/hello/datastuff
 
