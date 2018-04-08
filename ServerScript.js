@@ -1,12 +1,13 @@
 // includes the HTTP module
 var http = require('http');
-var dt = require('./ServerModule.js');
+// var dt = require('./ServerModule.js');
 //var cors = require('cors');
 var express = require('express');
 //var bodyParser = require('body-parser');
 //var socket = require('socket.io');
 
 var players = [];
+var app = express();
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

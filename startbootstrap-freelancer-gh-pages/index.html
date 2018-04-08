@@ -170,12 +170,16 @@
       //     console.log(error);
       //   }
       // });
+      var l = function() {
+        console.log('listener');
+      }
 
       var req = new XMLHttpRequest();
-      req.open("GET","127.0.0.1:8080/");
+      req.open("GET","http://127.0.0.1:8080/");
+      req.addEventListener('load', l);
       req.send();
       req.onreadystatechange = function () {
-        if (req.readyState == 4 && xhr.status == 200) {
+        if (req.readyState == 4) {
           console.log("Get request successful!");
           console.log(req.responseText);
         }
