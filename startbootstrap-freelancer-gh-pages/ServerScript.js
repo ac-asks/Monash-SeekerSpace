@@ -1,15 +1,17 @@
 // includes the HTTP module
-var http = require('http');
+var http = require('http').Server(app);
 var dt = require('./ServerModule.js');
 //var cors = require('cors');
 var express = require('express');
 var bodyParser = require('body-parser');
-//var socket = require('socket.io');
+var io = require('socket.io')(http);
 
 var players = [];
 
 //setup an express app
 var app = express();
+
+app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded(
   {extended: true}
@@ -25,19 +27,21 @@ io.on('connection', function(socket){
 })
 
 app.get('/', (req, res) => {
-  res.json({'hi': 'lo'});
+  res.sendFile(__dirname + '/lobbypage.html');
 });
 
 //A get function that adds players into the list of current players
 var counter = 0;
 //When using this route
+app.use(express.static(__dirname + "/public"));
 app.get('/join/:name_param', (req, res) => {
   var my_param = req.params.name_param;
   //Pushes a new JSON object into the players array
   players.push({'name': my_param, 'lat': 0, 'lng':0 , 'role':'neutral'})
-  console.log('player added');
+  console.log(players[counter]);
   //res.json({'name': 'bob', 'counter': counter, 'lat': 100, 'lng': 50, 'other_people': [1, 1, 2, 3]});
-  res.status(200); //OKAY!
+  res.sendFile(__dirname + "/gamepage.html");
+  //res.status(200); //OKAY!
   counter++;
 });
 
