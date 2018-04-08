@@ -22,11 +22,17 @@ Robbers would have trackers, and coppers would have a sensor which tells them wh
     2. The coppers win by approaching within 1m of a robber and 'catching' them
     3. Robbers win by eluding the coppers for the given time limit
 
-The technologies we've been using are google api, bootstrap, javascript modules express and node.js, git.
+The technologies we've been using are HTML5 google maps api, bootstrap, javascript modules express and node.js, git.
 
 Languages: HTML, CSS, Javascript
 
 
 
 Other features that could be added would be tied in with additional rules such as:
-- 
+- The app will only designate coppers and robbers once everyone is sufficiently far apart.
+    - This allows for the players to now know who a robber is and who a copper is
+- Robbers get points the longer they stay in 1 place
+- They can spend said points on effects or power ups such as
+    - Disable scanner for a minute, 
+    - Hack into the tracker to make their location point towards someone else
+    - If 2 robbers find each other
