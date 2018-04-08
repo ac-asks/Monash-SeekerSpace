@@ -79,26 +79,63 @@
                  }
           </style>
         </head>
-        <body> <!-- Fix this -->
-            <h3>Cop radar:</h3>
-              <div id="map"></div>
-              <script>
-                  function initMap() {
-                    var uluru = {lat: -25.363, lng: 131.044};
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                      zoom: 4,
-                      center: uluru
+        <body>
+            <div id="map"></div>
+            <div id="lat"></div>
+            <div id="lng"></div>
+            <script>
+                // Note: This example requires that you consent to location sharing when
+                // prompted by your browser. If you see the error "The Geolocation service
+                // failed.", it means you probably did not give permission for the browser to
+                // locate you.
+                var map, infoWindow;
+                function initMap() {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: { lat: -25.363, lng: 131.044 },
+                        zoom: 4
                     });
-                    var marker = new google.maps.Marker({
-                      position: uluru,
-                      map: map
-                    });
-                  }
-              </script>
-              <!-- This loads the API from the specified URL -->
-              <script async defer
-              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaFtFSZ4CdF-nrKf1RL5iIsVXtWcDtyxk&callback=initMap">
-              </script>
+                    infoWindow = new google.maps.InfoWindow;
+
+                    // Try HTML5 geolocation.
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            var pos = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            };
+                            map = new google.maps.Map(document.getElementById('map'), {
+                                center: pos,
+                                zoom: 16
+                            });
+                            infoWindow.open(map);
+                            map.setCenter(pos);
+                            var marker1 = new google.maps.Marker({
+                                position: pos,
+                                map: map
+                            });
+                            console.log(pos);
+                            console.log(pos.lat);
+                            console.log(pos.lng);
+                        }, function () {
+                            handleLocationError(true, infoWindow, map.getCenter());
+                        });
+                    } else {
+                        // Browser doesn't support Geolocation
+                        handleLocationError(false, infoWindow, map.getCenter());
+                    }
+                }
+
+                function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+                    infoWindow.open(map);
+                }
+            </script>
+                          <!-- This loads the API from the specified URL -->
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC23tLDaC-xc7rCmcKlJSvPXXqTcMAsQ9Y&callback=initMap">
+            </script>
          </body>
     </section>
 
@@ -107,9 +144,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4">Location</h4>
-            <p class="lead mb-0">2215 John Daniel Drive
-              <br>Clark, MO 65243</p>
+            <h4 class="text-uppercase mb-4">Monash University</h4>
+            <p class="lead mb-0">Learning and Teaching Building</p>
           </div>
           <div class="col-md-4 mb-5 mb-lg-0">
             <h4 class="text-uppercase mb-4">Around the Web</h4>
